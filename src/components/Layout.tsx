@@ -76,18 +76,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white pt-24 px-6 md:hidden"
+            initial={{ opacity: 0, y: -20, rotateX: 10 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            exit={{ opacity: 0, y: -20, rotateX: 10 }}
+            style={{ transformPerspective: 1000 }}
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md pt-32 px-6 md:hidden text-center"
           >
-            <div className="flex flex-col gap-6 items-center">
+            <div className="flex flex-col gap-8 items-center">
               {navLinks.map((link) => (
                 <a 
                   key={link.name} 
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xl font-serif text-brand-900 hover:text-accent-gold transition-colors"
+                  className="text-3xl font-serif text-brand-900 hover:text-accent-gold transition-colors"
                 >
                   {link.name}
                 </a>
@@ -97,7 +98,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      <main>{children}</main>
+      <main className="relative z-10" style={{ transformStyle: 'preserve-3d' }}>
+        {/* Global Floating 3D Decor */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" style={{ perspective: '1000px' }}>
+          <motion.div 
+            animate={{ 
+                rotateX: [0, 360], 
+                rotateY: [0, -360],
+                y: [-20, 20, -20]
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[30%] left-[5%] w-32 h-32 border border-accent-gold/20 rounded-2xl backdrop-blur-[2px]"
+            style={{ transformStyle: 'preserve-3d' }}
+          />
+          <motion.div 
+            animate={{ 
+                rotateX: [360, 0], 
+                rotateY: [0, 360],
+                y: [20, -20, 20]
+            }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[20%] right-[5%] w-48 h-48 border border-brand-900/10 rounded-full backdrop-blur-[2px]"
+            style={{ transformStyle: 'preserve-3d' }}
+          />
+        </div>
+        
+        {children}
+      </main>
     </div>
   );
 }

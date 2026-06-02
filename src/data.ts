@@ -27,7 +27,14 @@ export const experience = [
     role: "Account Director / Project Lead",
     company: "Bright Communications, Kochi",
     date: "Jun 2024 - Present",
-    accounts: "Renai Medicity, Renai Kochi, KSINC, CIMAR Women’s Hospital, Vibha by Bharath Hospital, Aakash Educational Services",
+    accountsList: [
+      { name: "Renai Medicity", url: "https://renaimedicity.org/" },
+      { name: "Renai Kochi", url: "https://www.renaikochi.in/" },
+      { name: "KSINC", url: "https://www.ksinc.in/" },
+      { name: "CIMAR Women’s Hospital", url: "https://www.cimarindia.org/" },
+      { name: "Vibha by Bharath Hospital", url: "https://www.google.com/search?q=Vibha+by+Bharath+Hospital" },
+      { name: "Aakash Educational Services", url: "https://www.aakash.ac.in/" }
+    ],
     details: [
       "Directed end-to-end project management for marketing and branding initiatives, overseeing planning, execution, and delivery. (Both Offline & Online)",
       "Managed cross-functional teams to ensure seamless coordination and timely completion of projects.",
@@ -40,7 +47,12 @@ export const experience = [
     role: "Head of Brand Communications / Consultant",
     company: "Poptale integrated marketing Agency, Kochi",
     date: "Oct 2023 - May 2024",
-    accounts: "Kitchen Treasures, Euro Guard, Kent constructions, Arakkal Gold & Diamonds",
+    accountsList: [
+      { name: "Kitchen Treasures", url: "https://kitchentreasures.in/" },
+      { name: "Euro Guard", url: "https://www.euroguard.in/" },
+      { name: "Kent constructions", url: "https://kentconstructions.com/" },
+      { name: "Arakkal Gold & Diamonds", url: "https://www.google.com/search?q=Arakkal+Gold+%26+Diamonds" }
+    ],
     details: [
       "Led comprehensive branding and communications campaigns both offline and online."
     ]
@@ -49,7 +61,11 @@ export const experience = [
     role: "Account Manager: Client Relations / Consultant",
     company: "Passio, Kochi",
     date: "Sept 2022 - June 2024",
-    accounts: "Zafco group of companies, Trivandrum International School, Cochin international School",
+    accountsList: [
+      { name: "Zafco group of companies", url: "https://zafcogroup.com/" },
+      { name: "Trivandrum International School", url: "https://trins.org/" },
+      { name: "Cochin international School", url: "https://gemsinternational.in/" }
+    ],
     details: [
       "Supervised client-focused projects, ensuring alignment with business objectives and brand strategy. (Both Offline & Online)",
       "Coordinated project schedules, timelines, and resource allocation for optimal delivery.",
@@ -60,7 +76,13 @@ export const experience = [
     role: "Account Executive",
     company: "The Links India, Kochi",
     date: "Mar 2018 - Sept 2021",
-    accounts: "Amazon, Logitech, Federal Bank, Novotel Kochi, Ibis",
+    accountsList: [
+      { name: "Amazon", url: "https://www.amazon.in/" },
+      { name: "Logitech", url: "https://www.logitech.com/" },
+      { name: "Federal Bank", url: "https://www.federalbank.co.in/" },
+      { name: "Novotel Kochi", url: "https://all.accor.com/hotel/A102/index.en.shtml" },
+      { name: "Ibis", url: "https://all.accor.com/brands/ibis.en.shtml" }
+    ],
     details: [
       "Gained a foundational understanding of branding and communications while contributing creatively to campaigns. (Both Offline & Online)",
       "Successfully managed campaigns for major clients, including Amazon and Logitech, enhancing brand visibility and customer engagement.",
@@ -71,7 +93,15 @@ export const experience = [
     role: "Senior Client Service Executive",
     company: "Method Advertising, Kochi",
     date: "Sept 2016 - Feb 2018",
-    accounts: "KMRL, Credai, Hedge, Asianet Broadband, Civil Supplies corporation, Daily Fish, Maruti Suzuki kerala region",
+    accountsList: [
+      { name: "KMRL", url: "https://kochimetro.org/" },
+      { name: "Credai", url: "https://credai.org/" },
+      { name: "Hedge", url: "https://www.hedgeequities.com/" },
+      { name: "Asianet Broadband", url: "https://asianetbroadband.in/" },
+      { name: "Civil Supplies corporation", url: "https://supplycokerala.com/" },
+      { name: "Daily Fish", url: "https://dailyfish.in/" },
+      { name: "Maruti Suzuki kerala region", url: "https://www.marutisuzuki.com/" }
+    ],
     details: [
       "Managed the branding and marketing activities for the inauguration of Kochi Metro Rail’s first phase.",
       "Created and executed various offline campaigns, ensuring impactful visibility and audience engagement.",
@@ -82,7 +112,12 @@ export const experience = [
     role: "Client Service Executive",
     company: "TeamOne Advertising, Kochi",
     date: "Aug 2014 - Sept 2015",
-    accounts: "V Star, Eastern, Jayalakshmi, Muthoot",
+    accountsList: [
+      { name: "V Star", url: "https://www.vstar.in/" },
+      { name: "Eastern", url: "https://eastern.in/" },
+      { name: "Jayalakshmi", url: "https://www.jayalakshmisilks.com/" },
+      { name: "Muthoot", url: "https://www.muthootfinance.com/" }
+    ],
     details: [
       "Emphasized how those clients helped shape foundational skills in branding and client management."
     ]
