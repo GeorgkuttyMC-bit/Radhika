@@ -19,17 +19,16 @@ export default function Experience() {
              <span className="w-1.5 h-1.5 rounded-full bg-accent-secondary animate-pulse"></span>
              Experience
           </div>
-          <div className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] tracking-tight mb-8">
-            Select<br />History
-          </div>
-          <p className="text-brand-100/60 font-sans leading-relaxed mb-12">
+          <motion.div 
+            whileHover={{ scale: 1.05, originX: 0 }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] tracking-tight mb-8 cursor-default"
+          >
+            Select<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary">History</span>
+          </motion.div>
+          <p className="text-brand-100/60 font-sans leading-relaxed mb-12 max-w-sm">
             A track record of leading high-impact campaigns, reshaping brands, and driving strategic growth across global markets.
           </p>
-          
-          <div className="hidden lg:block relative rounded-2xl overflow-hidden aspect-[3/4] border border-white/10 group shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
-             <div className="absolute inset-0 bg-accent-secondary/10 mix-blend-overlay z-10 transition-opacity group-hover:opacity-0 duration-700"></div>
-             <img src="/image.png" alt="Experience Visual" className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[2s] ease-[0.16,1,0.3,1]" />
-          </div>
         </motion.div>
 
         {/* Right Column - Timeline */}
@@ -42,10 +41,13 @@ export default function Experience() {
               whileHover={{ scale: 1.02, x: 10, rotateY: -3 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
-              className="group bg-brand-800/40 backdrop-blur-md border border-white/10 rounded-2xl p-8 mb-8 hover:border-accent-primary/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transform-gpu relative overflow-hidden"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.05}
+              className="group bg-brand-800/40 backdrop-blur-md border border-white/10 rounded-2xl p-8 mb-8 hover:border-accent-primary/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transform-gpu relative overflow-hidden cursor-grab active:cursor-grabbing"
             >
               {/* Subtle gradient background on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/10 via-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-8 relative z-10">
                 <h3 className="text-2xl font-display font-medium text-brand-100 mb-2 md:mb-0">

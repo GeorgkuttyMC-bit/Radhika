@@ -25,14 +25,14 @@ export default function About() {
           
           <div className="mt-12 h-px w-full bg-gradient-to-r from-accent-primary/50 to-transparent"></div>
           
-          <p className="mt-12 text-lg lg:text-xl text-brand-100/70 font-sans font-light leading-relaxed">
-            {personalInfo.about}
-          </p>
-
-          <div className="mt-12 relative rounded-2xl overflow-hidden aspect-video border border-white/10 group shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
-             <div className="absolute inset-0 bg-accent-primary/10 mix-blend-overlay z-10 transition-opacity group-hover:opacity-0 duration-700"></div>
-             <img src="/image.png" alt="Strategic Vision" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] ease-[0.16,1,0.3,1]" />
-          </div>
+          <motion.div 
+            whileHover={{ scale: 1.02 }} 
+            className="mt-12 p-8 rounded-2xl bg-brand-800/20 backdrop-blur-sm border border-white/5 hover:border-accent-primary/30 transition-all group"
+          >
+            <p className="text-lg lg:text-xl text-brand-100/70 font-sans font-light leading-relaxed group-hover:text-brand-100 transition-colors">
+              {personalInfo.about}
+            </p>
+          </motion.div>
         </motion.div>
         
         {/* Right Column - Skills List */}
@@ -46,7 +46,10 @@ export default function About() {
               whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5, z: 20 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6, type: "spring", bounce: 0.4 }}
-              className="group bg-brand-800/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:border-accent-primary/50 transition-all transform-gpu cursor-pointer flex flex-col justify-between aspect-square"
+              drag
+              dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+              dragElastic={0.1}
+              className="group bg-brand-800/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:border-accent-primary/50 transition-all transform-gpu cursor-grab active:cursor-grabbing flex flex-col justify-between aspect-square"
             >
               <div className="flex justify-end">
                 <ArrowUpRight className="w-5 h-5 text-brand-100/30 group-hover:text-accent-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />

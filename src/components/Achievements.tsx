@@ -27,9 +27,18 @@ export default function Achievements() {
                whileHover={{ scale: 1.05, rotateY: 5, rotateX: -5, z: 20 }}
                viewport={{ once: true }}
                transition={{ duration: 0.6, delay: 0.1 * index, type: "spring" }}
-               className="bg-brand-800/20 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:border-accent-primary/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transform-gpu"
+               drag
+               dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+               dragElastic={0.1}
+               className="bg-brand-800/20 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:border-accent-primary/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transform-gpu cursor-grab active:cursor-grabbing"
              >
-               <div className="text-sm font-sans font-bold text-accent-primary mb-4 tracking-[0.1em]">{`0${index + 1}`}</div>
+               <motion.div 
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.2, originX: 0 }}
+                  className="text-sm font-sans font-bold text-accent-primary mb-4 tracking-[0.1em]"
+               >
+                  {`0${index + 1}`}
+               </motion.div>
                <p className="text-xl font-display font-medium text-brand-100 leading-tight">
                  {achievement}
                </p>
@@ -37,19 +46,6 @@ export default function Achievements() {
           ))}
           
         </div>
-
-        {/* Mid-section Banner Image */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30, rotateX: 10 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, type: "spring", bounce: 0.3 }}
-          className="mt-24 relative rounded-2xl overflow-hidden h-64 sm:h-80 w-full border border-white/10 group shadow-[0_20px_50px_rgba(0,0,0,0.4)] transform-gpu"
-        >
-           <div className="absolute inset-0 bg-brand-900/60 mix-blend-multiply z-10 transition-opacity group-hover:opacity-20 duration-700"></div>
-           <div className="absolute inset-0 bg-gradient-to-r from-accent-primary/20 to-accent-secondary/20 z-10 mix-blend-overlay"></div>
-           <img src="/image.png" alt="Achievements Banner" className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[2s] ease-[0.16,1,0.3,1] origin-center" />
-        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 mt-24 pt-24 border-t border-white/10">
           

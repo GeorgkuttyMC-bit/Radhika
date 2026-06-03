@@ -17,14 +17,14 @@ export default function ContactFooter() {
            transition={{ duration: 1, type: "spring", bounce: 0.4 }}
            className="transform-gpu flex flex-col items-center"
         >
-          <div className="mb-12 relative w-32 h-32 rounded-full overflow-hidden border-2 border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group">
-             <div className="absolute inset-0 bg-accent-primary/20 mix-blend-overlay z-10 transition-opacity group-hover:opacity-0 duration-700"></div>
-             <img src="/image.png" alt="Let's Collaborate" className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[2s] ease-[0.16,1,0.3,1]" />
-          </div>
-
-          <h2 className="text-5xl sm:text-7xl lg:text-[7rem] font-display font-bold leading-[1] tracking-tighter uppercase whitespace-normal mb-8 text-brand-100 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-accent-primary hover:to-accent-secondary transition-all duration-700 cursor-default">
+          <motion.h2 
+            drag
+            dragConstraints={{ top: -20, left: -20, right: 20, bottom: 20 }}
+            dragElastic={0.2}
+            className="text-5xl sm:text-7xl lg:text-[7rem] font-display font-bold leading-[1] tracking-tighter uppercase whitespace-normal mb-8 text-brand-100 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-accent-primary hover:to-accent-secondary transition-colors duration-700 cursor-grab active:cursor-grabbing"
+          >
             Let's<br />Collaborate
-          </h2>
+          </motion.h2>
         </motion.div>
 
         <motion.p 
