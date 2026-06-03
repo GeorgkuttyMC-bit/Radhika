@@ -3,18 +3,18 @@
 
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Space Grotesk", ui-serif, Georgia, serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 
+  --color-brand-900: #030712;
+  --color-brand-800: #111827;
+  --color-brand-700: #1f2937;
+  --color-brand-100: #f8fafc;
   --color-brand-50: #ffffff;
-  --color-brand-100: #f5f5f5;
-  --color-brand-800: #1a1a1a;
-  --color-brand-900: #0a0a0a;
   
-  --color-accent-gold: #ff4500;
+  --color-accent-primary: #818cf8;
+  --color-accent-secondary: #f472b6;
 }
 
 body {
-  @apply font-sans text-brand-800 bg-brand-50;
-  background-image: radial-gradient(var(--color-brand-100) 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
+  @apply font-sans text-brand-100 bg-brand-900;
 }

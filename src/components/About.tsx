@@ -1,54 +1,63 @@
 import { motion } from 'motion/react';
 import { personalInfo, coreCompetencies } from '../data';
-import { CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 sm:px-12 lg:px-24 border-y border-brand-100 bg-brand-900 text-brand-50 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent-gold via-transparent to-transparent pointer-events-none"></div>
-      
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section id="about" className="py-24 px-6 sm:px-12 lg:px-24 border-b border-white/5 relative preserve-3d">
+      <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start perspective-[1200px]">
+        
+        {/* Left Column */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24"
+          initial={{ opacity: 0, y: 30, rotateY: -10 }}
+          whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="transform-gpu"
         >
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-5xl font-serif text-white mb-6 tracking-tight">Professional Summary</h2>
-              <div className="w-16 h-1 bg-accent-gold"></div>
-            </div>
-            
-            <p className="text-xl text-brand-50/80 leading-relaxed font-light">
-              {personalInfo.about}
-            </p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-primary text-xs font-medium uppercase tracking-wider mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse"></span>
+            The Mission
+          </div>
+          <div className="text-3xl sm:text-4xl lg:text-5xl font-display font-medium leading-[1.2] tracking-tight">
+            Building campaigns that cut through the noise and command attention.
           </div>
           
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95, rotateY: -10 }}
-            whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-            whileHover={{ scale: 1.02, rotateY: -2, rotateX: 1, z: 20 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
-            style={{ transformStyle: "preserve-3d", transformPerspective: 1000 }}
-            className="bg-brand-800/40 p-10 rounded-3xl border border-brand-50/10 backdrop-blur-sm shadow-2xl hover:border-accent-gold/30 hover:bg-brand-800/60 transition-all duration-500"
-          >
-            <h3 className="text-2xl font-serif text-white mb-8 font-medium">Core Competencies</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {coreCompetencies.map((skill, index) => (
-                <div 
-                  key={index}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-brand-900/50 hover:bg-accent-gold hover:text-white transition-all duration-300 group cursor-default"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-accent-gold group-hover:text-white shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium leading-snug">{skill}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="mt-12 h-px w-full bg-gradient-to-r from-accent-primary/50 to-transparent"></div>
+          
+          <p className="mt-12 text-lg lg:text-xl text-brand-100/70 font-sans font-light leading-relaxed">
+            {personalInfo.about}
+          </p>
+
+          <div className="mt-12 relative rounded-2xl overflow-hidden aspect-video border border-white/10 group shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+             <div className="absolute inset-0 bg-accent-primary/10 mix-blend-overlay z-10 transition-opacity group-hover:opacity-0 duration-700"></div>
+             <img src="/image.png" alt="Strategic Vision" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] ease-[0.16,1,0.3,1]" />
+          </div>
         </motion.div>
+        
+        {/* Right Column - Skills List */}
+        <div className="pt-12 lg:pt-0 grid grid-cols-1 sm:grid-cols-2 gap-4 perspective-[1000px]">
+          
+          {coreCompetencies.map((skill, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, z: -50, rotateX: -10 }}
+              whileInView={{ opacity: 1, z: 0, rotateX: 0 }}
+              whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5, z: 20 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6, type: "spring", bounce: 0.4 }}
+              className="group bg-brand-800/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:border-accent-primary/50 transition-all transform-gpu cursor-pointer flex flex-col justify-between aspect-square"
+            >
+              <div className="flex justify-end">
+                <ArrowUpRight className="w-5 h-5 text-brand-100/30 group-hover:text-accent-primary group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
+              </div>
+              <span className="text-xl sm:text-2xl font-display font-medium text-brand-100 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accent-primary group-hover:to-accent-secondary transition-all">
+                {skill}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

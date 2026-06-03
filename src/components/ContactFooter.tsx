@@ -1,68 +1,67 @@
 import { motion } from 'motion/react';
 import { personalInfo } from '../data';
-import { Mail, Phone, Linkedin, MapPin } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function ContactFooter() {
   return (
-    <footer id="contact" className="py-24 px-6 sm:px-12 lg:px-24 bg-white border-t border-brand-100">
-      <div className="max-w-5xl mx-auto">
+    <footer id="contact" className="py-24 px-6 sm:px-12 lg:px-24 border-t border-white/5 relative preserve-3d overflow-hidden">
+      {/* Background shape */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[40vw] max-w-4xl max-h-4xl bg-gradient-to-t from-accent-primary/20 to-transparent rounded-full blur-[150px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center perspective-[1000px]">
+        
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+           initial={{ opacity: 0, scale: 0.9, rotateX: 20 }}
+           whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+           className="transform-gpu flex flex-col items-center"
         >
-          <h2 className="text-4xl font-serif text-brand-900 mb-6">Let's Connect</h2>
-          <p className="text-lg text-brand-800/60 max-w-2xl mx-auto">
-            Open for new opportunities, collaborations, and discussions on strategic communications and project management.
-          </p>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
-        >
-          <a href={`mailto:${personalInfo.email}`} className="flex flex-col items-center group">
-            <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center mb-4 transition-colors group-hover:bg-accent-gold/10">
-              <Mail className="w-6 h-6 text-brand-900 group-hover:text-accent-gold transition-colors" />
-            </div>
-            <span className="font-medium text-brand-900 mb-1">Email</span>
-            <span className="text-sm text-brand-800/60">{personalInfo.email}</span>
-          </a>
-
-          <a href={`tel:${personalInfo.phone}`} className="flex flex-col items-center group">
-            <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center mb-4 transition-colors group-hover:bg-accent-gold/10">
-              <Phone className="w-6 h-6 text-brand-900 group-hover:text-accent-gold transition-colors" />
-            </div>
-            <span className="font-medium text-brand-900 mb-1">Phone</span>
-            <span className="text-sm text-brand-800/60">+91 {personalInfo.phone}</span>
-          </a>
-
-          <a href={`https://linkedin.com/in/${personalInfo.linkedin}`} target="_blank" rel="noreferrer" className="flex flex-col items-center group">
-            <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center mb-4 transition-colors group-hover:bg-accent-gold/10">
-              <Linkedin className="w-6 h-6 text-brand-900 group-hover:text-accent-gold transition-colors" />
-            </div>
-            <span className="font-medium text-brand-900 mb-1">LinkedIn</span>
-            <span className="text-sm text-brand-800/60 truncate w-full text-center px-4">{personalInfo.linkedin}</span>
-          </a>
-
-          <div className="flex flex-col items-center group">
-            <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center mb-4 transition-colors group-hover:bg-accent-gold/10">
-              <MapPin className="w-6 h-6 text-brand-900 group-hover:text-accent-gold transition-colors" />
-            </div>
-            <span className="font-medium text-brand-900 mb-1">Location</span>
-            <span className="text-sm text-brand-800/60">{personalInfo.location}</span>
+          <div className="mb-12 relative w-32 h-32 rounded-full overflow-hidden border-2 border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group">
+             <div className="absolute inset-0 bg-accent-primary/20 mix-blend-overlay z-10 transition-opacity group-hover:opacity-0 duration-700"></div>
+             <img src="/image.png" alt="Let's Collaborate" className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[2s] ease-[0.16,1,0.3,1]" />
           </div>
+
+          <h2 className="text-5xl sm:text-7xl lg:text-[7rem] font-display font-bold leading-[1] tracking-tighter uppercase whitespace-normal mb-8 text-brand-100 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-accent-primary hover:to-accent-secondary transition-all duration-700 cursor-default">
+            Let's<br />Collaborate
+          </h2>
         </motion.div>
 
-        <div className="text-center pt-8 border-t border-brand-100">
-          <p className="text-sm text-brand-800/40">
-            © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-xl sm:text-2xl text-brand-100/60 font-sans font-light max-w-2xl mx-auto mb-16"
+        >
+          Open for new opportunities, collaborations, and discussions on strategic communications and brand management.
+        </motion.p>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-wrap justify-center gap-6 mb-24"
+        >
+          <a href={`mailto:${personalInfo.email}`} className="inline-flex items-center gap-3 px-8 py-4 bg-brand-100 text-brand-900 border border-brand-100 uppercase font-bold tracking-[0.1em] text-sm rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)]">
+            Email Me <ArrowUpRight size={18} />
+          </a>
+          <a href={`https://linkedin.com/in/${personalInfo.linkedin}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-brand-800/40 backdrop-blur-md border border-white/10 text-brand-100 hover:border-accent-secondary hover:text-accent-secondary uppercase font-bold tracking-[0.1em] text-sm rounded-full transition-all duration-300 hover:-translate-y-1">
+            LinkedIn <ArrowUpRight size={18} />
+          </a>
+          <a href={`tel:${personalInfo.phone}`} className="inline-flex items-center gap-3 px-8 py-4 bg-brand-800/40 backdrop-blur-md border border-white/10 text-brand-100 hover:border-accent-secondary hover:text-accent-secondary uppercase font-bold tracking-[0.1em] text-sm rounded-full transition-all duration-300 hover:-translate-y-1">
+            Voice <ArrowUpRight size={18} />
+          </a>
+        </motion.div>
+
+        <div className="w-full flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-white/10 font-sans text-sm text-brand-100/40 uppercase tracking-widest font-bold">
+          <p>
+            © {new Date().getFullYear()} {personalInfo.name}
           </p>
+          <div className="mt-4 sm:mt-0">
+             {personalInfo.location}
+          </div>
         </div>
       </div>
     </footer>
